@@ -66,6 +66,23 @@
 def next_move(hand):
     score = 0
     for card in hand:
+        if (card == "K" or card == "Q" or card == "J"):
+            score += 10
+        elif (card == "A"):
+            if (score + 11 >= 17 and score + 11 <= 21):
+                score += 11
+            else:
+                score += 1
+        else:
+            score += int(card)
+
+    if score < 17:
+        return "Hit"
+    elif score > 21:
+        return "Bust"
+    else:
+        return "Stay"
+
         
 
 
